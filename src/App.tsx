@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SHORTCUTS from './api/shortcuts'
+import bg from './assets/img/bg.gif'
+import GlobalSearch from './components/GlobalSearch'
+import ModalSearchContainer from './components/ModalSearchContainer'
+import ShortCutMenuComponent from './components/ShortCutMenu'
+import Title from './components/Title'
 
-function App() {
+const adjustedHalfHeight = 'h-[calc(50vh-1.25rem)]'
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='min-h-screen p-5' style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <ModalSearchContainer />
+      {/* <section className={`${adjustedHalfHeight} w-full flex flex-col items-center justify-end`}> */}
+      <section className={`${adjustedHalfHeight} flex flex-col items-center justify-center`}>
+        <div className='w-[50vw]'>
+          <Title />
+          <GlobalSearch />
+        </div>
+      </section>
+      <section className={`w-full bg-base-200/70 backdrop-blur-md rounded-xl p-5 flex gap-3 overflow-x-auto`}>
+        {SHORTCUTS.map(shortCutMenu => (
+          <ShortCutMenuComponent shortCutMenu={shortCutMenu} />
+        ))}
+      </section>
     </div>
-  );
+  )
 }
 
 export default App;
