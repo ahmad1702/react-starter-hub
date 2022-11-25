@@ -1,6 +1,7 @@
 import SHORTCUTS from './api/shortcuts'
 import bg from './assets/img/bg.gif'
 import GlobalSearch from './components/GlobalSearch'
+import GoogleApps from './components/GoogleApps'
 import ModalSearchContainer from './components/ModalSearchContainer'
 import ShortCutMenuComponent from './components/ShortCutMenu'
 import Title from './components/Title'
@@ -10,6 +11,7 @@ const App = () => {
   return (
     <div className='min-h-screen p-5' style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       <ModalSearchContainer />
+      <GoogleApps />
       {/* <section className={`${adjustedHalfHeight} w-full flex flex-col items-center justify-end`}> */}
       <section className={`${adjustedHalfHeight} flex flex-col items-center justify-center`}>
         <div className='w-[50vw]'>

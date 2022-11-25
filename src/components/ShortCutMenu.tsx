@@ -4,7 +4,7 @@ import redaxios from 'redaxios'
 
 type ShortcutStatus = 'default' | 'Not Running' | 'Running'
 const ShortCutLink = ({ shortcut }: { shortcut: Shortcut }) => {
-    const { title, description, link, filename, } = shortcut;
+    const { title, description, link, imagePath: filename, } = shortcut;
     const [status, setStatus] = useState<ShortcutStatus>('default')
     useEffect(() => {
         if (!link.includes('localhost')) return
