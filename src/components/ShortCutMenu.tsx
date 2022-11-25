@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Shortcut, ShortCutMenu } from '../api/shortcuts'
 import redaxios from 'redaxios'
+import { Shortcut, ShortCutMenu } from '../api/shortcuts'
+import { urlFromImagePath } from '../utils/utils'
 
 type ShortcutStatus = 'default' | 'Not Running' | 'Running'
 const ShortCutLink = ({ shortcut }: { shortcut: Shortcut }) => {
-    const { title, description, link, imagePath: filename, } = shortcut;
+    const { title, description, link, imagePath, } = shortcut;
     const [status, setStatus] = useState<ShortcutStatus>('default')
     useEffect(() => {
         if (!link.includes('localhost')) return
@@ -28,16 +29,7 @@ const ShortCutLink = ({ shortcut }: { shortcut: Shortcut }) => {
         statusColor = 'text-green-600'
     }
 
-    let formattedImageURL = !!filename ? filename : `https://s2.googleusercontent.com/s2/favicons?domain_url=${link}`
-    if (!!filename && !filename.includes('https')) {
-        const extension = `/assets/shortcut_images/${filename}`
-        let rooturl = window.location.origin
-        if (rooturl.includes('file://')) {
-            const linksplit = window.location.href.split('/')
-            rooturl = linksplit.slice(0, linksplit.length - 1).join('/')
-        }
-        formattedImageURL = rooturl + extension
-    }
+    const formattedImageURL = urlFromImagePath(imagePath, link)
 
     return (
         <li className={'w-full overflow-hidden block'}>

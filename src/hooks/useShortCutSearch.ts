@@ -1,8 +1,10 @@
 import Fuse from "fuse.js";
-import SHORTCUTS, { Shortcut } from "../api/shortcuts";
+import { getShortCuts, Shortcut } from "../api/shortcuts";
 
 const searchShortCuts = (searchTerm: string): Shortcut[] => {
-  const list: Array<Shortcut> = SHORTCUTS.map(({ links }) => links).flat();
+  const list: Array<Shortcut> = getShortCuts()
+    .map(({ links }) => links)
+    .flat();
   const options: Fuse.IFuseOptions<Shortcut> = {
     includeScore: true,
     keys: ["title", "description"],

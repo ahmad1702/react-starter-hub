@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Shortcut } from '../api/shortcuts';
+import { urlFromImagePath } from '../utils/utils';
 
 type Props = {}
 
@@ -8,14 +9,17 @@ const APPS: Shortcut[] = [
     {
         title: 'Google Docs',
         link: 'https://docs.google.com',
+        imagePath: 'maps.png'
     },
     {
         title: 'Gmail',
         link: 'https://mail.google.com',
+        imagePath: 'gmail.png'
     },
     {
         title: 'Google Maps',
         link: 'https://maps.google.com',
+        imagePath: 'maps.png'
     }
 ]
 const GoogleApps = (props: Props) => {
@@ -34,25 +38,19 @@ const GoogleApps = (props: Props) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
                     </svg>
                 </label>
-                <div tabIndex={0} className="dropdown-content p-2 shadow bg-base-100/60 backdrop-blur-md rounded-box w-52 grid grid-cols-3 gap-1">
+
+                <div tabIndex={0} className="dropdown-content p-2 shadow bg-base-100/60 backdrop-blur-md rounded-box w-96 grid grid-cols-3 gap-1">
                     {APPS.map(({ title, link, imagePath }) => (
                         <a
                             href={link}
-                            className='h-32 bg-red-500 flex flex-col items-center justify-center'
+                            className='h-32 group flex flex-col items-center justify-center rounded-xl bg-base-100/60 hover:scale-95 hover:bg-white/30 duration-150'
                         >
+                            <img className="h-10 w-10 group-hover:h-16 group-hover:w-16 group-hover:mb-3 text-xs object- object-contain duration-300" src={urlFromImagePath(imagePath, link)} alt={title} />
                             <div>{title}</div>
                         </a>
-                    ))}
+                    )
+                    )}
                 </div>
-            </div>
-            <div className="dropdown dropdown-end">
-                <label
-                    tabIndex={0}
-                    className="btn m-1">Click</label>
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
-                </ul>
             </div>
         </>
     )

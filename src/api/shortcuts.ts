@@ -8,7 +8,8 @@ export type ShortCutMenu = {
   title: string;
   links: Shortcut[];
 };
-const SHORTCUTS: ShortCutMenu[] = [
+
+const oldShortcuts: ShortCutMenu[] = [
   {
     title: "Development 💻",
     links: [
@@ -52,8 +53,7 @@ const SHORTCUTS: ShortCutMenu[] = [
       {
         title: "Youtube",
         link: "https://www.youtube.com",
-        imagePath:
-          "https://s2.googleusercontent.com/s2/favicons?domain_url=https://www.youtube.com",
+        imagePath: "youtube.svg",
       },
       {
         title: "9anime",
@@ -64,9 +64,13 @@ const SHORTCUTS: ShortCutMenu[] = [
       {
         title: "Zoro",
         link: "https://zoro.to/",
+        imagePath: 'zoro.png'
       },
     ],
   },
 ];
 
-export default SHORTCUTS;
+export const getShortCuts = (): ShortCutMenu[] => {
+  return oldShortcuts;
+}
+export default getShortCuts;

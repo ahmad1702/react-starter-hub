@@ -1,4 +1,4 @@
-import SHORTCUTS from './api/shortcuts'
+import SHORTCUTS, { getShortCuts } from './api/shortcuts'
 import bg from './assets/img/bg.gif'
 import GlobalSearch from './components/GlobalSearch'
 import GoogleApps from './components/GoogleApps'
@@ -20,7 +20,7 @@ const App = () => {
         </div>
       </section>
       <section className={`w-full bg-base-200/70 backdrop-blur-md rounded-xl p-5 flex gap-3 overflow-x-auto`}>
-        {SHORTCUTS.map(shortCutMenu => (
+        {getShortCuts().map(shortCutMenu => (
           <ShortCutMenuComponent shortCutMenu={shortCutMenu} />
         ))}
       </section>
