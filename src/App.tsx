@@ -1,4 +1,4 @@
-import SHORTCUTS, { getShortCuts } from './api/shortcuts'
+import { getShortCuts } from './api/shortcuts'
 import bg from './assets/img/bg.gif'
 import GlobalSearch from './components/GlobalSearch'
 import GoogleApps from './components/GoogleApps'
@@ -11,15 +11,15 @@ const App = () => {
   return (
     <div className='min-h-screen p-5' style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       <ModalSearchContainer />
-      <GoogleApps />
       {/* <section className={`${adjustedHalfHeight} w-full flex flex-col items-center justify-end`}> */}
       <section className={`${adjustedHalfHeight} flex flex-col items-center justify-center`}>
+        <GoogleApps />
         <div className='w-[50vw]'>
           <Title />
           <GlobalSearch />
         </div>
       </section>
-      <section className={`w-full bg-base-200/70 backdrop-blur-md rounded-xl p-5 flex gap-3 overflow-x-auto`}>
+      <section className={`${adjustedHalfHeight} w-full bg-base-200/70 backdrop-blur-md rounded-xl p-5 flex gap-3 overflow-x-auto`}>
         {getShortCuts().map(shortCutMenu => (
           <ShortCutMenuComponent shortCutMenu={shortCutMenu} />
         ))}

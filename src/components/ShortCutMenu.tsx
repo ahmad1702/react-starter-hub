@@ -33,9 +33,9 @@ const ShortCutLink = ({ shortcut }: { shortcut: Shortcut }) => {
 
     return (
         <li className={'w-full overflow-hidden block'}>
-            <a href={link} className='w-full flex items-center'>
+            <a href={link} className='group w-full flex items-center gap-3 py-2 px-5 hover:bg-white/10 duration-150'>
                 {formattedImageURL && (
-                    <img className="h-10 w-10 text-xs object- object-contain" src={formattedImageURL} alt={title} />
+                    <img className="h-7 w-7 group-hover:h-10 group-hover:w-10 duration-300 text-xs object- object-contain" src={formattedImageURL} alt={title} />
                 )}
                 <div className={'flex flex-col items-start'}>
                     <div className="font-bold">
@@ -59,7 +59,7 @@ const ShortCutMenuComponent = ({ shortCutMenu }: ShortCutMenuProps) => {
     return (
         <div className='h-full'>
             <div className={'h-10 font-extrabold text-xl'}>{shortCutMenu.title}</div>
-            <ul className="menu bg-base-100 w-80 rounded-box h-[calc(100%-2.5rem)]">
+            <ul className="bg-base-100 w-80 rounded-box h-[calc(100%-2.5rem)] overflow-auto">
                 {shortCutMenu.links.map((shortcut) => (
                     <ShortCutLink shortcut={shortcut} />
                 ))}
