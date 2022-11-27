@@ -70,7 +70,8 @@ const oldShortcuts: ShortCutMenu[] = [
   },
 ];
 
-export const getShortCuts = (): ShortCutMenu[] => {
-  return oldShortcuts;
+export const getShortCuts = async (): Promise<ShortCutMenu[]> => {
+  // const res = await redaxios.get('/assets/data/shortcuts.json');
+  return await oldShortcuts;
 }
 export default getShortCuts;

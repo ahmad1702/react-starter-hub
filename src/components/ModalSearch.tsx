@@ -2,13 +2,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Shortcut } from '../api/shortcuts'
 import useShortCutSearch from '../hooks/useShortCutSearch'
+import { useShortcuts } from '../providers/ShortcutProvider'
 
 
 
 const ModalSearch = () => {
     const [searchInput, setSearchInput] = useState<string>('')
-
     const searchInputRef = useRef<HTMLInputElement>(null)
+    const { shortcuts } = useShortcuts()
 
     useEffect(() => {
         console.log('mounted')
@@ -26,7 +27,7 @@ const ModalSearch = () => {
 
     let results: Shortcut[] = []
     if (searchInput.length > 0) {
-        results = useShortCutSearch(searchInput);
+        results = useShortCutSearch(searchInput, shortcuts);
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
