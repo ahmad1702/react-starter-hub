@@ -37,6 +37,11 @@ const GlobalSearch = () => {
             window.open(`https://www.google.com/search?q=${searchInput}`, '_self')
         }
     }
+    const handleSearchKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (!e || e.key !== 'Escape') return
+        setSearchInput('')
+        e.currentTarget.blur()
+    }
     const resultsContainerStyles = 'result-container mt-2 px-5 py-4 w-full rounded-xl shadow-md bg-base-100 hover:p-6 focus:p-6 hover:bg-primary hover:text-white focus:bg-primary focus:text-white outline-none duration-300 cursor-pointer active:scale-95 select-none flex items-center justify-between'
     const firstResultStyles = 'result-container mt-2 w-full rounded-xl shadow-md p-6 bg-primary text-white outline-none duration-300 cursor-pointer active:scale-95 select-none flex items-center justify-between'
     return (
@@ -50,6 +55,7 @@ const GlobalSearch = () => {
                     value={searchInput}
                     onChange={handleSearchInputChange}
                     onBlur={() => setSearchInput('')}
+                    onKeyUp={handleSearchKeyUp}
                 />
                 {searchInput.length > 0 && results.length === 0 && (
                     <img className='h-7 w-7 absolute top-[1.1rem] right-5' src={urlFromImagePath('google.png', '')} alt="" />

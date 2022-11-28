@@ -1,4 +1,7 @@
-export const urlFromImagePath = (filename: string | undefined, link: string) => {
+export const urlFromImagePath = (
+  filename: string | undefined,
+  link: string
+) => {
   let formattedImageURL = !!filename
     ? filename
     : `https://s2.googleusercontent.com/s2/favicons?domain_url=${link}`;
@@ -11,5 +14,12 @@ export const urlFromImagePath = (filename: string | undefined, link: string) => 
     }
     formattedImageURL = rooturl + extension;
   }
-  return formattedImageURL
+  return formattedImageURL;
 };
+
+export const toTitleCase = (str: string) => {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}

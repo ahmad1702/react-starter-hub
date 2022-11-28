@@ -10,11 +10,21 @@ type ModalSearchContainerProps = {
 const ModalSearchContainer = ({ open, setOpen }: ModalSearchContainerProps) => {
     const invisibleCheckBoxRef = useRef<HTMLInputElement>(null)
 
+    const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && closeMessage()
+
+    const closeMessage = () => {
+        setOpen(false)
+        document.removeEventListener('keydown', handleEsc)
+    }
     const showMessage = () => {
         setOpen(prev => !prev)
+        document.addEventListener('keydown', handleEsc)
     }
     const keydownHandler = (e: KeyboardEvent) => {
-        if (e.key === 'k' && e.metaKey) showMessage()
+        if ((e.key === 'k' && e.metaKey) || (e.key === 'k' && e.ctrlKey)) {
+            e.preventDefault()
+            showMessage()
+        }
     };
     useEffect(() => {
         document.addEventListener('keydown', keydownHandler);

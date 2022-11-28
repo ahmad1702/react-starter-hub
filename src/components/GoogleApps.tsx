@@ -27,7 +27,7 @@ const GoogleApps = () => {
                     {APPS.map(({ title, link, imagePath }) => (
                         <a
                             href={link}
-                            className='h-32 group flex flex-col items-center justify-center rounded-xl bg-base-100/60 hover:scale-95 hover:bg-white/30 duration-150'
+                            className='h-32 p-2 group flex flex-col items-center justify-center rounded-xl bg-base-100/60 hover:scale-95 hover:bg-white/30 duration-150'
                         >
                             <img className="h-10 w-10 group-hover:h-16 group-hover:w-16 text-xs object- object-contain duration-300" src={urlFromImagePath(imagePath, link)} alt={title} />
                             <div className='text-center leading-5 mt-1'>{title}</div>
