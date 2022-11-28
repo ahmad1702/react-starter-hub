@@ -1,28 +1,8 @@
 import { useState } from 'react';
-import { Shortcut } from '../types/types';
+import APPS from '../api/apps';
 import { urlFromImagePath } from '../utils/utils';
 
-type Props = {}
-
-
-const APPS: Shortcut[] = [
-    {
-        title: 'Google Docs',
-        link: 'https://docs.google.com',
-        imagePath: 'docs.png'
-    },
-    {
-        title: 'Google Maps',
-        link: 'https://maps.google.com',
-        imagePath: 'maps.png'
-    },
-    {
-        title: 'Google Translate',
-        link: 'https://translate.google.com',
-        imagePath: 'translate.png'
-    },
-]
-const GoogleApps = (props: Props) => {
+const GoogleApps = () => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
