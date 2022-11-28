@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useRef, useState } from 'react'
-import { Shortcut } from '../api/shortcuts'
 import useShortCutSearch from '../hooks/useShortCutSearch'
 import { useShortcuts } from '../providers/ShortcutProvider'
+import { Shortcut } from '../types/types'
 
 
 

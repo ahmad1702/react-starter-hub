@@ -1,15 +1,6 @@
-export type Shortcut = {
-  title: string;
-  description?: string;
-  link: string;
-  imagePath?: string;
-};
-export type ShortCutMenu = {
-  title: string;
-  links: Shortcut[];
-};
+import { ShortCutMenu } from "../types/types";
 
-const oldShortcuts: ShortCutMenu[] = [
+const SHORTCUTS: ShortCutMenu[] = [
   {
     title: "Development 💻",
     links: [
@@ -64,14 +55,19 @@ const oldShortcuts: ShortCutMenu[] = [
       {
         title: "Zoro",
         link: "https://zoro.to/",
-        imagePath: 'zoro.png'
+        imagePath: "zoro.png",
+      },
+      {
+        title: "Xfinity Stream",
+        link: "https://www.xfinity.com/stream/",
+      },
+      {
+        title: "NFL Redzone",
+        link: "https://www.xfinity.com/stream/entity/6948486277053969112",
+        imagePath: "nfl.png",
       },
     ],
   },
 ];
 
-export const getShortCuts = async (): Promise<ShortCutMenu[]> => {
-  // const res = await redaxios.get('/assets/data/shortcuts.json');
-  return await oldShortcuts;
-}
-export default getShortCuts;
+export default SHORTCUTS;

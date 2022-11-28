@@ -1,5 +1,5 @@
 import Fuse from "fuse.js";
-import { Shortcut, ShortCutMenu } from "../api/shortcuts";
+import { Shortcut, ShortCutMenu } from "../types/types";
 
 const searchShortCuts = (
   searchTerm: string,

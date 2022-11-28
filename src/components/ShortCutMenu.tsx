@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import redaxios from 'redaxios'
-import { Shortcut, ShortCutMenu } from '../api/shortcuts'
+import { Shortcut, ShortCutMenu } from '../types/types'
 import { urlFromImagePath } from '../utils/utils'
 
 type ShortcutStatus = 'default' | 'Not Running' | 'Running'
@@ -35,7 +35,7 @@ const ShortCutLink = ({ shortcut }: { shortcut: Shortcut }) => {
         <li className={'w-full overflow-hidden block'}>
             <a href={link} className='group w-full flex items-center gap-3 py-2 px-5 hover:bg-white/10 duration-150'>
                 {formattedImageURL && (
-                    <img className="h-7 w-7 group-hover:h-10 group-hover:w-10 duration-300 text-xs object- object-contain" src={formattedImageURL} alt={title} />
+                    <img className="h-7 w-7 group-hover:h-10 group-hover:w-10 duration-150 text-xs object- object-contain" src={formattedImageURL} alt={title} />
                 )}
                 <div className={'flex flex-col items-start'}>
                     <div className="font-bold">

@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useRef, useState } from 'react'
-import { Shortcut } from '../api/shortcuts'
 import useShortCutSearch from '../hooks/useShortCutSearch'
 import { useShortcuts } from '../providers/ShortcutProvider'
+import { Shortcut } from '../types/types'
+import { urlFromImagePath } from '../utils/utils'
 
 const GlobalSearch = () => {
     const [focusedIndex, setFocusedIndex] = useState<number>(0)
@@ -41,7 +42,7 @@ const GlobalSearch = () => {
     const firstResultStyles = 'result-container mt-2 w-full rounded-xl shadow-md p-6 bg-primary text-white outline-none duration-300 cursor-pointer active:scale-95 select-none flex items-center justify-between'
     return (
         <div className='relative'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='relative'>
                 <input
                     ref={searchInputRef}
                     type="text"
@@ -50,6 +51,9 @@ const GlobalSearch = () => {
                     value={searchInput}
                     onChange={handleSearchInputChange}
                 />
+                {searchInput.length > 0 && results.length === 0 && (
+                    <img className='h-7 w-7 absolute top-[1.1rem] right-5' src={urlFromImagePath('google.png', '')} alt="" />
+                )}
             </form>
             {results.length > 0 && (
                 <div className="p-5 absolute top-20 z-50 bg-base-300/60 backdrop-blur-xl w-full rounded-xl">

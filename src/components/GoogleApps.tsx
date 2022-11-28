@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Shortcut } from '../api/shortcuts';
+import { useState } from 'react';
+import { Shortcut } from '../types/types';
 import { urlFromImagePath } from '../utils/utils';
 
 type Props = {}
@@ -9,25 +9,33 @@ const APPS: Shortcut[] = [
     {
         title: 'Google Docs',
         link: 'https://docs.google.com',
-        imagePath: 'maps.png'
-    },
-    {
-        title: 'Gmail',
-        link: 'https://mail.google.com',
-        imagePath: 'gmail.png'
+        imagePath: 'docs.png'
     },
     {
         title: 'Google Maps',
         link: 'https://maps.google.com',
         imagePath: 'maps.png'
-    }
+    },
+    {
+        title: 'Google Translate',
+        link: 'https://translate.google.com',
+        imagePath: 'translate.png'
+    },
 ]
 const GoogleApps = (props: Props) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
-        <>
-            <div className='absolute top-7 right-7 dropdown dropdown-end'>
+        <div className='absolute top-7 right-7 flex items-start'>
+            <a
+                href="https://mail.google.com"
+                className='btn btn-ghost btn-xl p-3 font-bold text-xl h-auto bg-base-100/30 backdrop-blur-md m-1'
+            >
+                <img className='h-6 mr-2' src={urlFromImagePath('gmail.png', '')} alt="" />
+                <div className='h-10 w-0'></div>
+                GMAIL
+            </a>
+            <div className='dropdown dropdown-end'>
                 <label
                     tabIndex={0}
                     onClick={() => setOpen(prev => !prev)}
@@ -45,14 +53,14 @@ const GoogleApps = (props: Props) => {
                             href={link}
                             className='h-32 group flex flex-col items-center justify-center rounded-xl bg-base-100/60 hover:scale-95 hover:bg-white/30 duration-150'
                         >
-                            <img className="h-10 w-10 group-hover:h-16 group-hover:w-16 group-hover:mb-3 text-xs object- object-contain duration-300" src={urlFromImagePath(imagePath, link)} alt={title} />
-                            <div>{title}</div>
+                            <img className="h-10 w-10 group-hover:h-16 group-hover:w-16 text-xs object- object-contain duration-300" src={urlFromImagePath(imagePath, link)} alt={title} />
+                            <div className='text-center leading-5 mt-1'>{title}</div>
                         </a>
                     )
                     )}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
