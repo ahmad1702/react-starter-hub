@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
-import ModalSearch from './ModalSearch'
+import { useEffect, useRef } from 'react';
+import ModalSearch from './ModalSearch';
 
-type Props = {}
+type ModalSearchContainerProps = {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 
-const ModalSearchContainer = (props: Props) => {
-    const [open, setOpen] = useState<boolean>(false);
+const ModalSearchContainer = ({ open, setOpen }: ModalSearchContainerProps) => {
     const invisibleCheckBoxRef = useRef<HTMLInputElement>(null)
 
     const showMessage = () => {

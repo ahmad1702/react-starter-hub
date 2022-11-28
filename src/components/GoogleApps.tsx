@@ -3,7 +3,7 @@ import { urlFromImagePath } from '../utils/utils';
 
 const GoogleApps = () => {
     return (
-        <div className='absolute top-7 right-7 flex items-start'>
+        <div className='flex items-start'>
             <a
                 href="https://mail.google.com"
                 className='btn btn-ghost btn-xl p-3 font-bold text-xl h-auto bg-base-100/30 backdrop-blur-md m-1'

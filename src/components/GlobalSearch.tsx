@@ -49,6 +49,7 @@ const GlobalSearch = () => {
                     className="input input-bordered input-lg w-full bg-base-100/60 backdrop-blur-md"
                     value={searchInput}
                     onChange={handleSearchInputChange}
+                    onBlur={() => setSearchInput('')}
                 />
                 {searchInput.length > 0 && results.length === 0 && (
                     <img className='h-7 w-7 absolute top-[1.1rem] right-5' src={urlFromImagePath('google.png', '')} alt="" />
