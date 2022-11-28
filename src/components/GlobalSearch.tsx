@@ -56,7 +56,7 @@ const GlobalSearch = () => {
                 )}
             </form>
             {results.length > 0 && (
-                <div className="p-5 absolute top-20 z-50 bg-base-300/60 backdrop-blur-xl w-full rounded-xl">
+                <div className="h-[60vh] overflow-auto p-5 absolute top-20 z-50 bg-base-300/60 backdrop-blur-xl w-full rounded-xl">
                     <h3 className="text-2xl font-bold">Results</h3>
                     {results.map((item, i) => (
                         <a
