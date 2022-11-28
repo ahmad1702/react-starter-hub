@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import useLocalStorageState from 'use-local-storage-state'
 
-type Props = {}
-
-const Title = (props: Props) => {
+const Title = () => {
     const inputRef = useRef<HTMLInputElement>(null)
     const [editMode, setEditMode] = useState<boolean>(false)
     const [title, setTitle] = useLocalStorageState<string>('global-page-title', {
@@ -38,7 +36,7 @@ const Title = (props: Props) => {
                     </div>
                 )}
             </div>
-        </div >
+        </div>
     )
 }
 export default Title

@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import APPS from '../api/apps';
 import { urlFromImagePath } from '../utils/utils';
 
 const GoogleApps = () => {
-    const [open, setOpen] = useState<boolean>(false);
-
     return (
         <div className='absolute top-7 right-7 flex items-start'>
             <a
@@ -18,7 +15,6 @@ const GoogleApps = () => {
             <div className='dropdown dropdown-end'>
                 <label
                     tabIndex={0}
-                    onClick={() => setOpen(prev => !prev)}
                     className='drawer-button btn btn-ghost btn-xl p-3 font-bold text-xl h-auto bg-base-100/30 backdrop-blur-md m-1'
                 >
                     Apps

@@ -1,7 +1,7 @@
 import Fuse from "fuse.js";
 import { Shortcut, ShortCutMenu } from "../types/types";
 
-const searchShortCuts = (
+const searchShortCutsFilters = (
   searchTerm: string,
   shortcuts: ShortCutMenu[]
 ): Shortcut[] => {
@@ -18,4 +18,4 @@ const searchShortCuts = (
     .map((item) => item.item);
 };
 
-export default searchShortCuts;
+export default searchShortCutsFilters;

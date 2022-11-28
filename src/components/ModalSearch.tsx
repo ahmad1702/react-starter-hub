@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useRef, useState } from 'react'
-import useShortCutSearch from '../hooks/useShortCutSearch'
+import useShortCutSearchFilters from '../hooks/useShortCutSearchFilters'
 import { useShortcuts } from '../providers/ShortcutProvider'
 import { Shortcut } from '../types/types'
 
@@ -27,7 +27,7 @@ const ModalSearch = () => {
 
     let results: Shortcut[] = []
     if (searchInput.length > 0) {
-        results = useShortCutSearch(searchInput, shortcuts);
+        results = useShortCutSearchFilters(searchInput, shortcuts);
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

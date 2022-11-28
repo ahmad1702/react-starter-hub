@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useRef, useState } from 'react'
-import useShortCutSearch from '../hooks/useShortCutSearch'
+import useShortCutSearchFilters from '../hooks/useShortCutSearchFilters'
 import { useShortcuts } from '../providers/ShortcutProvider'
 import { Shortcut } from '../types/types'
 import { urlFromImagePath } from '../utils/utils'
@@ -12,7 +12,6 @@ const GlobalSearch = () => {
     const { shortcuts } = useShortcuts()
 
     useEffect(() => {
-        console.log('mounted')
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const delayFocusInput = setTimeout(() => {
             searchInputRef.current?.focus()
@@ -27,7 +26,7 @@ const GlobalSearch = () => {
 
     let results: Shortcut[] = []
     if (searchInput.length > 0) {
-        results = useShortCutSearch(searchInput, shortcuts);
+        results = useShortCutSearchFilters(searchInput, shortcuts);
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

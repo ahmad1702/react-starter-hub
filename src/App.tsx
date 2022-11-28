@@ -13,7 +13,6 @@ const App = () => {
   return (
     <div className='min-h-screen p-5' style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       <ModalSearchContainer />
-      {/* <section className={`${adjustedHalfHeight} w-full flex flex-col items-center justify-end`}> */}
       <section className={`${adjustedHalfHeight} flex flex-col items-center justify-center`}>
         <GoogleApps />
         <div className='w-[50vw]'>

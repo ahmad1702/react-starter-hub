@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
 import SHORTCUTS from '../api/shortcuts';
 import { ShortCutMenu } from '../types/types';
@@ -19,16 +19,6 @@ export const ShortcutsProvider = ({ children }: { children: React.ReactNode }) =
     const [shortcuts, setShortcuts] = useLocalStorageState<ShortCutMenu[]>('shortcuts', {
         defaultValue: SHORTCUTS
     })
-
-    // useEffect(() => {
-    //     const jsonCall = async () => {
-    //         const parsedShortcuts = await getShortCuts()
-    //         if (parsedShortcuts.length > 0) {
-    //             setShortcuts(parsedShortcuts)
-    //         }
-    //     }
-    //     jsonCall()
-    // }, [])
 
     const providerValue = { shortcuts, setShortcuts }
 
