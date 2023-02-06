@@ -12,3 +12,7 @@ html, body {
   transform: scale(1.7);
   margin-right: 0.5rem;
 }
+
+.border-default {
+  @apply border-[1.5px] border-base-content/30
+}

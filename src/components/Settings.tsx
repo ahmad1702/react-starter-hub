@@ -34,7 +34,7 @@ const Settings = () => {
     return (
         <>
             <label htmlFor='settings-modal'
-                className='btn btn-ghost btn-xl p-3 font-bold text-xl h-auto bg-base-100/30 backdrop-blur-md m-1 flex items-center'
+                className='btn btn-ghost btn-xl p-3 font-bold text-xl h-auto bg-base-100/30 backdrop-blur-md m-1 flex items-center border-default'
             >
                 <Cog6ToothIcon className='h-6 w-6' />
             </label>
